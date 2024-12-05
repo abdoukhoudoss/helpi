@@ -1,11 +1,11 @@
 .missions-grid {
   display: grid;
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr;
   gap: 24px;
   justify-content: center;
   padding: 20px;
   margin: 0 auto;
-  max-width: 1200px; 
+  max-width: 1200px;
 }
 
 .mission-container {
@@ -20,11 +20,13 @@
   height: 280px;
   object-fit: cover;
   border-radius: 20px;
-  transition: transform 0.2s ease; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .mission-image:hover {
-  transform: scale(1.05); 
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);;
 }
 
 @media screen and (min-width: 768px) {
@@ -50,28 +52,27 @@
   }
 
   .mission-container {
-    width: 180px; 
+    width: 180px;
   }
 
   .mission-image {
-    width: 180px; 
-    height: 180px; 
+    width: 180px;
+    height: 180px;
   }
 }
-
 
 @media screen and (min-width: 1280px) {
   .missions-grid {
     grid-template-columns: repeat(5, 200px);
     gap: 50px;
-  
+
     .mission-container {
-      width: 200px; 
+      width: 200px;
     }
-  
+
     .mission-image {
-      width: 200px; 
-      height: 200px; 
+      width: 200px;
+      height: 200px;
     }
   }
 }
