@@ -1,9 +1,9 @@
 /* HomeMission.css */
 
-div {
-  padding: 20px;
+.homemission-page {
   background-color: #e8724a;
-  border-radius: 0px 0px 200px 200px;
+  border-radius: 0px 0px 80px 80px;
+  padding-bottom: 20px;
 }
 
 .HomeMission-container {
@@ -11,7 +11,6 @@ div {
   align-items: center;
   padding: 20px;
   background-color: #e8724a;
-  border-radius: 0px 0px 200px 200px;
 }
 
 .mission-container {
@@ -25,8 +24,6 @@ div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
 }
 
 .homemission-title {

@@ -1,9 +1,13 @@
-const footer: React.FC = () => {
-  return (
-    <div className="footer">
-      <h3>Made with ❤︎ by Justine | Radwan | Abdou | Emma </h3>
-    </div>
-  );
-};
+import "../styles/footer.css";
 
-export default footer;
+function Footer() {
+  return (
+    <footer className="footer">
+      <p className="footer_paragraph">
+        Made with ❤︎ by Justine | Radwan | Abdou | Emma
+      </p>
+    </footer>
+  );
+}
+
+export default Footer;
