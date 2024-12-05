@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { missions } from "C:/Users/justi/OneDrive/desktop/Wild_Code_School/Protojam/helpi/server/data.ts";
+import { missions } from "../../../server/data.ts";
 import MissionModal from './missionModal.tsx';
 import { Mission } from '../types/types.ts';
 import "../styles/mission.css";
