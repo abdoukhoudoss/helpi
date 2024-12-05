@@ -1,0 +1,21 @@
+.mission-container {
+  width: 120px; /* Taille fixe pour un carré */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mission-image {
+  width: 120px; /* Même largeur que le container */
+  height: 120px; /* Même hauteur que la largeur pour un carré parfait */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 30px;
+  justify-content: center;
+}
