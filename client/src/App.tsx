@@ -1,11 +1,12 @@
 import "./App.css";
-import Missions from "./components/Missions";
+
+import { HomeMission } from "./pages/HomeMission";
 
 function App() {
   return (
-    <>
-      <Missions />
-    </>
+    <div>
+      <HomeMission />
+    </div>
   );
 }
 

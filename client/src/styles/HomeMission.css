@@ -1,0 +1,35 @@
+/* HomeMission.css */
+
+div {
+  padding: 20px;
+  background-color: #e8724a;
+  border-radius: 0px 0px 200px 200px;
+}
+
+.HomeMission-container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #e8724a;
+  border-radius: 0px 0px 200px 200px;
+}
+
+.mission-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MissionList-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.homemission-title {
+  background-color: #e8724a;
+  color: white;
+}
