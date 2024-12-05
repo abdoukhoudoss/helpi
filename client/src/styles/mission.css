@@ -1,21 +1,77 @@
+.missions-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 24px;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px; 
+}
+
 .mission-container {
-  width: 120px; /* Taille fixe pour un carré */
-  margin: 10px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .mission-image {
-  width: 120px; /* Même largeur que le container */
-  height: 120px; /* Même hauteur que la largeur pour un carré parfait */
+  width: 280px;
+  height: 280px;
   object-fit: cover;
   border-radius: 20px;
+  transition: transform 0.2s ease; 
 }
 
-.missions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 120px);
-  gap: 30px;
-  justify-content: center;
+.mission-image:hover {
+  transform: scale(1.05); 
+}
+
+@media screen and (min-width: 768px) {
+  .missions-grid {
+    grid-template-columns: repeat(3, 160px);
+    gap: 30px;
+  }
+
+  .mission-container {
+    width: 160px;
+  }
+
+  .mission-image {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .missions-grid {
+    grid-template-columns: repeat(4, 180px);
+    gap: 40px;
+  }
+
+  .mission-container {
+    width: 180px; 
+  }
+
+  .mission-image {
+    width: 180px; 
+    height: 180px; 
+  }
+}
+
+
+@media screen and (min-width: 1280px) {
+  .missions-grid {
+    grid-template-columns: repeat(5, 200px);
+    gap: 50px;
+  
+    .mission-container {
+      width: 200px; 
+    }
+  
+    .mission-image {
+      width: 200px; 
+      height: 200px; 
+    }
+  }
 }

@@ -1,0 +1,109 @@
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: #EFEFEF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    border-radius: 20px;
+    outline: none;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-header {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  
+  .modal-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  .modal-title {
+    margin-bottom: 8px !important;
+    font-weight: bold !important;
+    color: #1E1E1E !important;
+  }
+  
+  .modal-category {
+    color: #1E1E1E !important;
+    opacity: 0.8;
+  }
+  
+  .modal-description {
+    margin-bottom: 24px !important;
+    color: #1E1E1E !important;
+  }
+  
+  .modal-details {
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    color: #1E1E1E;
+  }
+  
+  .modal-details Typography {
+    margin-bottom: 8px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
+  /* Styles des boutons */
+  .modal-button {
+    border-radius: 10px !important;
+    text-transform: none !important;
+  }
+  
+  .modal-button.MuiButton-contained {
+    background-color: #E8724A !important;
+    color: white !important;
+  }
+  
+  .modal-button.MuiButton-contained:hover {
+    background-color: #d65f36 !important;
+  }
+  
+  .modal-button.MuiButton-outlined {
+    color: #1E1E1E !important;
+    border-color: #1E1E1E !important;
+  }
+  
+  .modal-button.MuiButton-outlined:hover {
+    background-color: rgba(30, 30, 30, 0.04) !important;
+  }
+  
+  /* Styles du formulaire */
+  .form-field {
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .form-field .MuiOutlinedInput-root {
+    border-radius: 10px;
+  }
+  
+  .form-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #E8724A !important;
+  }
+  
+  .form-field .MuiInputLabel-root.Mui-focused {
+    color: #E8724A !important;
+  }
+  
+  .registration-form .modal-title {
+    margin-bottom: 16px !important;
+  }
