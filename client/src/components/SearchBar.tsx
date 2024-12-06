@@ -14,20 +14,20 @@ interface Mission {
 }
 
 const SearchBar: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>(""); // Texte de recherche
-  const [filteredMissions, setFilteredMissions] = useState<Mission[]>([]); // Missions filtrées
-  const [selectedMission, setSelectedMission] = useState<Mission | null>(null); // Mission sélectionnée
-  const [showSuggestion, setShowSuggestion] = useState<boolean>(false); // Contrôle des suggestions
-  const searchBarRef = useRef<HTMLDivElement>(null); // Référence à la barre de recherche
+  const [searchText, setSearchText] = useState<string>(""); 
+  const [filteredMissions, setFilteredMissions] = useState<Mission[]>([]); 
+  const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
+  const [showSuggestion, setShowSuggestion] = useState<boolean>(false); 
+  const searchBarRef = useRef<HTMLDivElement>(null); 
 
-  // Gestion des clics à l'extérieur de la barre de recherche
+  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         searchBarRef.current &&
         !searchBarRef.current.contains(event.target as Node)
       ) {
-        setShowSuggestion(false); // Masque les suggestions
+        setShowSuggestion(false); 
       }
     };
 
@@ -37,7 +37,7 @@ const SearchBar: React.FC = () => {
     };
   }, []);
 
-  // Filtrage des missions en fonction de la recherche
+  
   useEffect(() => {
     if (searchText.trim()) {
       const suggestions = missions.filter((mission) =>
@@ -56,15 +56,15 @@ const SearchBar: React.FC = () => {
       console.log("Veuillez saisir un texte avant de rechercher.");
       return;
     }
-    // Sélectionner la première mission correspondant à la recherche
+    
     const mission = filteredMissions[0] || null;
-    setSelectedMission(mission); // Définit la mission sélectionnée
-    setShowSuggestion(false); // Masque les suggestions
+    setSelectedMission(mission); 
+    setShowSuggestion(false); 
   };
 
   return (
     <div className="component-searchbar" ref={searchBarRef}>
-      {/* Barre de recherche */}
+      
       <div className="search-bar">
         <input
           type="text"
@@ -82,7 +82,7 @@ const SearchBar: React.FC = () => {
         </button>
       </div>
 
-      {/* Suggestions */}
+      
       {showSuggestion && (
         <div className="suggestionList">
           <ul className="ul-suggestion-list">
@@ -112,16 +112,16 @@ const SearchBar: React.FC = () => {
 
       
       {selectedMission && (
-        <div className="mini-card mt-4 p-4 bg-gray-800 rounded-md">
-          <h3 className="text-lg font-semibold text-white">{selectedMission.nom}</h3>
-          <p className="text-white">{selectedMission.description}</p>
-          <p className="text-sm text-white">
+        <div className="mini-card ">
+          <h3 className="nom-mission">{selectedMission.nom}</h3>
+          <p className="description">{selectedMission.description}</p>
+          <p className="association">
             Association : <strong>{selectedMission.association}</strong>
           </p>
-          <p className="text-sm text-white">Durée : {selectedMission.duree}</p>
+          <p className="durée">Durée : {selectedMission.duree}</p>
           {selectedMission.imageUrl && (
             <div
-              className="mini-card-img mt-2"
+              className="mini-card-img "
               style={{
                 backgroundImage: `url(${selectedMission.imageUrl})`,
                 height: "150px",
