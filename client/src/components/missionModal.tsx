@@ -1,7 +1,7 @@
-import { Box, Typography, Button, TextField, Modal } from '@mui/material';
-import { useEffect, useState } from 'react';
-import "../styles/missionModal.css";    
-import { Mission, FormData } from '../types/types';
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import "../styles/missionModal.css";
+import type { FormData, Mission } from "../types/types";
 
 interface MissionModalProps {
   open: boolean;
@@ -9,20 +9,24 @@ interface MissionModalProps {
   onClose: () => void;
 }
 
-const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => {
+const MissionModal = ({
+  open,
+  selectedMission,
+  onClose,
+}: MissionModalProps) => {
   const [showForm, setShowForm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    nom: '',
-    prenom: '',
-    telephone: ''
+    nom: "",
+    prenom: "",
+    telephone: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -36,7 +40,7 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
   const handleClose = () => {
     setShowForm(false);
     setShowSuccess(false);
-    setFormData({ nom: '', prenom: '', telephone: '' });
+    setFormData({ nom: "", prenom: "", telephone: "" });
     onClose();
   };
 
@@ -45,28 +49,29 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
     return null;
   }
 
-  useEffect(() => { // Pour le débogage
+  useEffect(() => {
+    // Pour le débogage
     console.log("Selected mission:", selectedMission);
   }, [selectedMission]);
 
   return (
-    <Modal 
-  open={open} 
-  onClose={handleClose} 
-  aria-labelledby="mission-modal"
-  sx={{
-    '& .MuiBackdrop-root': {
-      backdropFilter: 'blur(5px)',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)'
-    }
-  }}
->
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="mission-modal"
+      sx={{
+        "& .MuiBackdrop-root": {
+          backdropFilter: "blur(5px)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+        },
+      }}
+    >
       <Box className="modal-content">
         {selectedMission && !showForm && !showSuccess && (
           <>
             <Box className="modal-header">
-              <img 
-                src={selectedMission.imageUrl} 
+              <img
+                src={selectedMission.imageUrl}
                 alt={selectedMission.nom}
                 className="modal-image"
               />
@@ -89,7 +94,8 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
                 <strong>Durée :</strong> {selectedMission.duree}
               </Typography>
               <Typography>
-                <strong>Bénévoles requis :</strong> {selectedMission.nombreBenevoles}
+                <strong>Bénévoles requis :</strong>{" "}
+                {selectedMission.nombreBenevoles}
               </Typography>
               <Typography>
                 <strong>Association :</strong> {selectedMission.association}
@@ -97,14 +103,14 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
             </Box>
 
             <Box className="modal-actions">
-              <Button 
+              <Button
                 variant="outlined"
                 onClick={handleClose}
                 className="modal-button"
               >
                 Fermer
               </Button>
-              <Button 
+              <Button
                 variant="contained"
                 className="modal-button"
                 onClick={() => setShowForm(true)}
@@ -155,14 +161,14 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
             />
 
             <Box className="modal-actions">
-              <Button 
+              <Button
                 variant="outlined"
                 onClick={() => setShowForm(false)}
                 className="modal-button"
               >
                 Retour
               </Button>
-              <Button 
+              <Button
                 variant="contained"
                 type="submit"
                 className="modal-button"
@@ -174,16 +180,16 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
         )}
 
         {showSuccess && (
-          <Box sx={{ textAlign: 'center' }}>
+          <Box sx={{ textAlign: "center" }}>
             <Typography variant="h6" className="modal-title">
               Merci pour votre inscription !
             </Typography>
             <Typography className="modal-description">
-              Nous avons bien enregistré votre participation.
-              L'association vous contactera prochainement.
+              Nous avons bien enregistré votre participation. L'association vous
+              contactera prochainement.
             </Typography>
-            <Box className="modal-actions" sx={{ justifyContent: 'center' }}>
-              <Button 
+            <Box className="modal-actions" sx={{ justifyContent: "center" }}>
+              <Button
                 variant="contained"
                 onClick={handleClose}
                 className="modal-button"

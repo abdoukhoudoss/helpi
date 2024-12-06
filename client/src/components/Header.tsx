@@ -1,7 +1,6 @@
-import React from "react";
+import type React from "react";
 import "../styles/Header.css";
 import logo from "../assets/images/logo 1.svg";
-
 
 const Header: React.FC = () => {
   return (
@@ -13,8 +12,8 @@ const Header: React.FC = () => {
         <div className="text-container">
           <h1>Unissons nos forces </h1>
           <p>
-            Découvrez, soutenez et agissez aux côtés des associations qui changent
-            le monde. <br />
+            Découvrez, soutenez et agissez aux côtés des associations qui
+            changent le monde. <br />
             Un projet à la fois.
           </p>
         </div>

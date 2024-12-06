@@ -1,7 +1,10 @@
 .footer {
-  padding: 30px, 0, 30px, 0;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
 }
 .footer_paragraph {
+  padding: 4%;
+  font-size: 1rem;
   color: white;
   text-align: center;
 }

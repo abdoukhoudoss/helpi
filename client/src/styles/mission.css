@@ -1,3 +1,7 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .missions-grid {
   display: grid;
   grid-template-columns: 1fr;

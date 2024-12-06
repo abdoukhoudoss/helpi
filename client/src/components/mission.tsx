@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { missions } from "../../../server/data.ts";
-import MissionModal from './missionModal.tsx';
-import { Mission } from '../types/types.ts';
+import type { Mission } from "../types/types.ts";
+import MissionModal from "./missionModal.tsx";
 
 import "../styles/mission.css";
-import OptimizedImage from './OptimizedImage';
+import OptimizedImage from "./OptimizedImage";
 
 function MissionList() {
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [open, setOpen] = useState(false);
 
   const handleOpen = (mission: Mission) => {
-    console.log("Opening modal for mission:", mission)
+    console.log("Opening modal for mission:", mission);
     setSelectedMission(mission);
     setOpen(true);
   };

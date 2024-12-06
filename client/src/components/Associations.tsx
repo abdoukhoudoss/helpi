@@ -1,26 +1,24 @@
-import React, { useState } from "react";
-import "../styles/Associations.css"; 
-import Modal from "./Modal.tsx";
+import { useState } from "react";
+import "../styles/Associations.css";
 import { missions } from "../../../server/data.ts";
+import Modal from "./Modal.tsx";
 
 const Associations = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  
   const handleOpenModal = (category: string) => {
     setSelectedCategory(category);
     setIsModalOpen(true);
   };
 
- 
   const handleCloseModal = () => {
     setSelectedCategory(null);
     setIsModalOpen(false);
   };
 
   const filteredMissions = missions.filter(
-    (mission) => mission.categorie === selectedCategory
+    (mission) => mission.categorie === selectedCategory,
   );
 
   return (
@@ -28,35 +26,53 @@ const Associations = () => {
       <h1 className="title">ASSOCIATIONS</h1>
       <h2 className="subtitle">POPULAIRES</h2>
       <div className="associations-grid">
-      
         <div className="association-card main">
           <div>
             <h1>AGISSEZ</h1>
             <h2>AVEC NOUS</h2>
           </div>
-          <a href="#" className="arrow" onClick={() => handleOpenModal("Toutes les catégories")}>
+          {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+          <a
+            href="#"
+            className="arrow"
+            onClick={() => handleOpenModal("Toutes les catégories")}
+          >
             →
           </a>
         </div>
 
-        
-        <div className="association-card" onClick={() => handleOpenModal("Aide alimentaire")}>
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+        <div
+          className="association-card"
+          onClick={() => handleOpenModal("Aide alimentaire")}
+        >
           <h3>ALIMENTAIRE</h3>
           <img src="./src/assets/images/resto-coeur.png" alt="alimentaire" />
+          {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
           <a href="#" className="arrow">
             →
           </a>
         </div>
-        <div className="association-card" onClick={() => handleOpenModal("Aide sociale")}>
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+        <div
+          className="association-card"
+          onClick={() => handleOpenModal("Aide sociale")}
+        >
           <h3>SECOURS POPULAIRE</h3>
           <img src="./src/assets/images/secours-pop.png" alt="secours" />
+          {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
           <a href="#" className="arrow">
             →
           </a>
         </div>
-        <div className="association-card" onClick={() => handleOpenModal("Aide matérielle")}>
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+        <div
+          className="association-card"
+          onClick={() => handleOpenModal("Aide matérielle")}
+        >
           <h3>VÊTEMENT</h3>
           <img src="./src/assets/images/emmaus.png" alt="Vetement" />
+          {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
           <a href="#" className="arrow">
             →
           </a>
@@ -87,4 +103,3 @@ const Associations = () => {
 };
 
 export default Associations;
-

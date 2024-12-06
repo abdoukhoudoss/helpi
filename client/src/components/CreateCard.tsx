@@ -1,5 +1,5 @@
 function createCard(house) {
-    const template = `<div class="card">
+  const template = `<div class="card">
     <div class="card-header">
       <div class="card-img" style="background-image:url('${house.img}') "></div>
     </div>
@@ -9,8 +9,8 @@ function createCard(house) {
   <button class="card-button">I want it!</button>
   </div>
   </div>`;
-  
-    return template;
-  }
-  
-  export default createCard;
+
+  return template;
+}
+
+export default createCard;

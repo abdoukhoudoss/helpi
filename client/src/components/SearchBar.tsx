@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/SearchBar.css";
 import { missions } from "../../../server/data.ts";
 
@@ -40,7 +41,7 @@ const SearchBar: React.FC = () => {
   useEffect(() => {
     if (searchText.trim()) {
       const suggestions = missions.filter((mission) =>
-        mission.nom.toLowerCase().includes(searchText.toLowerCase())
+        mission.nom.toLowerCase().includes(searchText.toLowerCase()),
       );
       setFilteredMissions(suggestions);
       setShowSuggestion(true);
@@ -68,11 +69,7 @@ const SearchBar: React.FC = () => {
           className="search-input"
           onChange={(event) => setSearchText(event.target.value)}
         />
-        <button
-          type="button"
-          className="search-button"
-          onClick={handleSearch}
-        >
+        <button type="button" className="search-button" onClick={handleSearch}>
           🔍
         </button>
       </div>
@@ -92,7 +89,9 @@ const SearchBar: React.FC = () => {
                   }}
                 >
                   <strong>{mission.nom}</strong>
-                  <p>{mission.categorie} • {mission.duree}</p>
+                  <p>
+                    {mission.categorie} • {mission.duree}
+                  </p>
                 </li>
               ))
             ) : (
