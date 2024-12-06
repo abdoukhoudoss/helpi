@@ -1,5 +1,14 @@
 import aidecourses from "../client/src/assets/images/austin-kehmeier-lyiKExA4zQA-unsplash.jpg";
 import personneage from "../client/src/assets/images/william-krause-IL6M6cmhEpM-unsplash.jpg";
+
+
+const getOptimizedImageUrl = (imageUrl: string | typeof aidecourses | typeof personneage) => {
+  if (typeof imageUrl === 'string' && imageUrl.includes('unsplash.com')) {
+    return `${imageUrl}?w=200&h=200&fit=crop&q=75&fm=webp&auto=compress&blur=5`;
+  }
+  return imageUrl;
+};
+
 const missions = [
   {
     id: 1,
@@ -8,7 +17,7 @@ const missions = [
     description: "Distribution de repas chauds aux personnes dans le besoin",
     duree: "3 heures",
     nombreBenevoles: 5,
-    imageUrl: "https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9"),
     association: "Toulouse Solidarité",
   },
   {
@@ -18,7 +27,7 @@ const missions = [
     description: "Collecte de denrées alimentaires en supermarché",
     duree: "6 heures",
     nombreBenevoles: 10,
-    imageUrl: "https://images.unsplash.com/photo-1593113630400-ea4288922497",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1593113630400-ea4288922497"),
     association: "Main Tendue 31",
   },
   {
@@ -28,7 +37,7 @@ const missions = [
     description: "Maraude auprès des personnes sans abri",
     duree: "4 heures",
     nombreBenevoles: 6,
-    imageUrl: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b",
+    imageUrl:getOptimizedImageUrl("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b"),
     association: "Toulouse Solidarité",
   },
   {
@@ -38,7 +47,7 @@ const missions = [
     description: "Aide aux démarches administratives",
     duree: "2 heures",
     nombreBenevoles: 4,
-    imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1450101499163-c8848c66ca85"),
     association: "Cœur de Blagnac",
   },
   {
@@ -48,7 +57,7 @@ const missions = [
     description: "Aide aux devoirs pour collégiens",
     duree: "2 heures",
     nombreBenevoles: 4,
-    imageUrl: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1427504494785-3a9ca7044f45"),
     association: "Main Tendue 31",
   },
   {
@@ -58,7 +67,7 @@ const missions = [
     description: "Cours de français pour adultes",
     duree: "3 heures",
     nombreBenevoles: 3,
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1522202176988-66273c2fd55f"),
     association: "Espoir Colomiers",
   },
   {
@@ -68,7 +77,7 @@ const missions = [
     description: "Visite de personnes âgées isolées",
     duree: "2 heures",
     nombreBenevoles: 6,
-    imageUrl: personneage,
+    imageUrl: getOptimizedImageUrl(personneage),
     association: "Cœur de Blagnac",
   },
   {
@@ -78,7 +87,7 @@ const missions = [
     description: "Animation en maison de retraite",
     duree: "4 heures",
     nombreBenevoles: 5,
-    imageUrl: "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a"),
     association: "Partage Tournefeuille",
   },
   {
@@ -88,7 +97,7 @@ const missions = [
     description: "Atelier CV et lettre de motivation",
     duree: "3 heures",
     nombreBenevoles: 3,
-    imageUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1434030216411-0b793f4b4173"),
     association: "Espoir Colomiers",
   },
   {
@@ -98,7 +107,7 @@ const missions = [
     description: "Simulation d'entretiens d'embauche",
     duree: "4 heures",
     nombreBenevoles: 2,
-    imageUrl: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e"),
     association: "Main Tendue 31",
   },
   {
@@ -108,7 +117,7 @@ const missions = [
     description: "Animation d'activités pour adolescents",
     duree: "4 heures",
     nombreBenevoles: 3,
-    imageUrl: "https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2"),
     association: "Espoir Colomiers",
   },
   {
@@ -118,7 +127,7 @@ const missions = [
     description: "Activités créatives pour enfants",
     duree: "3 heures",
     nombreBenevoles: 4,
-    imageUrl: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1472162072942-cd5147eb3902"),
     association: "Partage Tournefeuille",
   },
   {
@@ -128,7 +137,7 @@ const missions = [
     description: "Accompagnement aux rendez-vous médicaux",
     duree: "3 heures",
     nombreBenevoles: 5,
-    imageUrl: "https://images.unsplash.com/photo-1581591524425-c7e0978865fc",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1581591524425-c7e0978865fc"),
     association: "Cœur de Blagnac",
   },
   {
@@ -138,7 +147,7 @@ const missions = [
     description: "Aide aux courses pour personnes âgées",
     duree: "2 heures",
     nombreBenevoles: 3,
-    imageUrl: aidecourses,
+    imageUrl: getOptimizedImageUrl(aidecourses),
     association: "Toulouse Solidarité",
   },
   {
@@ -148,7 +157,7 @@ const missions = [
     description: "Tri et distribution de vêtements",
     duree: "4 heures",
     nombreBenevoles: 5,
-    imageUrl: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1489987707025-afc232f7ea0f"),
     association: "Partage Tournefeuille",
   },
   {
@@ -158,7 +167,7 @@ const missions = [
     description: "Distribution de fournitures scolaires",
     duree: "3 heures",
     nombreBenevoles: 4,
-    imageUrl: "https://images.unsplash.com/photo-1452860606245-08befc0ff44b",
+    imageUrl: getOptimizedImageUrl("https://images.unsplash.com/photo-1452860606245-08befc0ff44b"),
     association: "Main Tendue 31",
   },
 ];
