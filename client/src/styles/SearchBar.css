@@ -1,81 +1,169 @@
-/* Conteneur de la barre de recherche */
+/* Conteneur principal */
+.component-searchbar {
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto;
+  position: relative;
+  padding-top: 30px;
+}
+
+/* Barre de recherche */
 .search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Nécessaire pour placer le bouton par-dessus l'input */
-  margin: 20px auto;
-  width: 90%; /* Barre responsive */
-  max-width: 400px;
+  position: relative;
+  width: 100%;
 }
 
 /* Style de l'input */
 .search-input {
-  width: 100%; /* Prend tout l'espace disponible */
-  padding: 12px 15px;
-  padding-right: 40px; /* Espace réservé pour le bouton */
+  width: 100%;
+  padding: 15px 20px;
+  padding-right: 50px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
+  border: 2px solid #EFEFEF;
+  border-radius: 20px;
   outline: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-/* Placeholder */
-.search-input::placeholder {
-  color: #aaa;
-  font-size: 14px;
+.search-input:focus {
+  border-color: #E8724A;
+  box-shadow: 0 4px 12px rgba(232, 114, 74, 0.2);
 }
 
-/* Bouton loupe */
+/* Bouton de recherche */
 .search-button {
-  position: absolute; /* Position absolue dans le conteneur */
-  right: 10px; /* À droite de l'input */
+  position: absolute;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  background: none; /* Pas de fond pour le bouton */
-  border: none; /* Pas de bordure */
+  background: none;
+  border: none;
   cursor: pointer;
-  font-size: 18px; /* Taille de la loupe */
-  color: #aaa;
-  padding: 5px; /* Un peu d'espace autour de l'icône */
-  transition: color 0.3s ease;
+  font-size: 20px;
+  color: #E8724A;
+  padding: 8px;
+  transition: transform 0.2s ease;
 }
 
-/* Effet au survol du bouton */
 .search-button:hover {
-  color: #e8724a; /* Change de couleur au survol */
+  transform: translateY(-50%) scale(1.1);
 }
 
-/* Effet au focus de l'input */
-.search-input:focus {
-  border-color: #e8724a;
-  box-shadow: 0 2px 8px rgba(232, 114, 74, 0.3);
-}
-.image-loupe {
-  height: 4vw;
-  width: 4vw;
-  margin: auto auto;
-}
-.li-suggestion-list {
-  color: white;
-}
-* Mini-carte * .mini-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-}
-
-.mini-card-img {
-  border-radius: 8px;
+/* Liste des suggestions */
+.suggestionList {
+  position: absolute;
+  width: 100%;
   margin-top: 10px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.ul-suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.li-suggestion-list {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #EFEFEF;
+  color: #1E1E1E;
+}
+
+.li-suggestion-list:last-child {
+  border-bottom: none;
+}
+
+.li-suggestion-list:hover {
+  background-color: rgba(232, 114, 74, 0.1);
+}
+
+.li-suggestion-list strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #1E1E1E;
+}
+
+.text-muted {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Mini-carte */
+.mini-card {
+  margin-top: 20px;
+  background-color: white !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  color: #1E1E1E !important;
 }
 
 .mini-card h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
+  color: #1E1E1E !important;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .mini-card p {
+  color: #1E1E1E !important;
+  margin: 8px 0;
+}
+
+.mini-card-img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.mini-card-img:hover {
+  transform: scale(1.02);
+}
+
+.mission-result {
+  cursor: pointer;
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mission-result:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.result-content {
+  margin-bottom: 12px;
+}
+
+.result-category {
+  color: #E8724A;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.result-duration, .result-association {
+  color: #666;
+  font-size: 14px;
   margin: 4px 0;
+}
+
+.mini-card-img {
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  transition: transform 0.2s ease;
 }
