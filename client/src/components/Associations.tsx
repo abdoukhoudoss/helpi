@@ -24,10 +24,10 @@ const Associations = () => {
   return (
     <div className="associations-container">
       <h1 className="title">ASSOCIATIONS</h1>
-      <h2 className="subtitle">TOULOUSAINE</h2>
+      <h2 className="subtitle">TOULOUSAINES</h2>
       <div className="associations-grid">
         <div className="association-card main">
-          <div>
+          <div className="association-agissez">
             <h1>AGISSEZ</h1>
             <h2>AVEC NOUS</h2>
           </div>
