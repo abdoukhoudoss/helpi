@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { missions } from "../../../server/data.ts";
 import MissionModal from './missionModal.tsx';
 import { Mission } from '../types/types.ts';
+
 import "../styles/mission.css";
 import OptimizedImage from './OptimizedImage';
 
