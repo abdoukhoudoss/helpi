@@ -53,9 +53,11 @@ const SearchBar: React.FC = () => {
 
   const handleSearch = () => {
     if (!searchText.trim()) {
+      // biome-ignore lint/suspicious/noConsoleLog: <explanation>
       console.log("Veuillez saisir un texte avant de rechercher.");
       return;
     }
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log("Rechercher :", searchText);
   };
 
@@ -78,11 +80,13 @@ const SearchBar: React.FC = () => {
           <ul className="ul-suggestion-list">
             {filteredMissions.length > 0 ? (
               filteredMissions.slice(0, 5).map((mission) => (
+                // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                 <li
                   key={`mission-${mission.id}`}
                   className="li-suggestion-list"
                   onClick={(e) => {
                     e.stopPropagation();
+                    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
                     console.log("Mission sélectionnée :", mission);
                     setSearchText(mission.nom); // Remplit l'input
                     setShowSuggestion(false); // Masque les suggestions

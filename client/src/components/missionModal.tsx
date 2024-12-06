@@ -32,6 +32,7 @@ const MissionModal = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log("Form submitted:", formData);
     setShowSuccess(true);
     setShowForm(false);
@@ -45,12 +46,14 @@ const MissionModal = ({
   };
 
   if (!selectedMission && open) {
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log("No mission selected"); // Pour le débogage
     return null;
   }
 
   useEffect(() => {
     // Pour le débogage
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log("Selected mission:", selectedMission);
   }, [selectedMission]);
 

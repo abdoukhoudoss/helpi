@@ -1,9 +1,4 @@
-import aidecourses from "../client/src/assets/images/austin-kehmeier-lyiKExA4zQA-unsplash.jpg";
-import personneage from "../client/src/assets/images/william-krause-IL6M6cmhEpM-unsplash.jpg";
-
-const getOptimizedImageUrl = (
-  imageUrl: string | typeof aidecourses | typeof personneage,
-) => {
+const getOptimizedImageUrl = (imageUrl: string) => {
   if (typeof imageUrl === "string" && imageUrl.includes("unsplash.com")) {
     return `${imageUrl}?w=200&h=200&fit=crop&q=75&fm=webp&auto=compress&blur=5`;
   }
@@ -90,7 +85,9 @@ const missions = [
     description: "Visite de personnes âgées isolées",
     duree: "2 heures",
     nombreBenevoles: 6,
-    imageUrl: getOptimizedImageUrl(personneage),
+    imageUrl: getOptimizedImageUrl(
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
+    ),
     association: "Cœur de Blagnac",
   },
   {
@@ -172,7 +169,9 @@ const missions = [
     description: "Aide aux courses pour personnes âgées",
     duree: "2 heures",
     nombreBenevoles: 3,
-    imageUrl: getOptimizedImageUrl(aidecourses),
+    imageUrl: getOptimizedImageUrl(
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
+    ),
     association: "Toulouse Solidarité",
   },
   {

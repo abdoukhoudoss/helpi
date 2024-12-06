@@ -1,4 +1,5 @@
-function createCard(house) {
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+function createCard(house: { img: any; name: any; desc: any }) {
   const template = `<div class="card">
     <div class="card-header">
       <div class="card-img" style="background-image:url('${house.img}') "></div>

@@ -11,12 +11,14 @@ function MissionList() {
   const [open, setOpen] = useState(false);
 
   const handleOpen = (mission: Mission) => {
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log("Opening modal for mission:", mission);
     setSelectedMission(mission);
     setOpen(true);
   };
 
   const handleClose = () => {
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log("Closing modal");
     setOpen(false);
     setSelectedMission(null);
