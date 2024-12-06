@@ -1,0 +1,60 @@
+/* Conteneur de la barre de recherche */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Nécessaire pour placer le bouton par-dessus l'input */
+    margin: 20px auto;
+    width: 90%; /* Barre responsive */
+    max-width: 400px;
+  }
+  
+  /* Style de l'input */
+  .search-input {
+    width: 100%; /* Prend tout l'espace disponible */
+    padding: 12px 15px;
+    padding-right: 40px; /* Espace réservé pour le bouton */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  /* Placeholder */
+  .search-input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  /* Bouton loupe */
+  .search-button {
+    position: absolute; /* Position absolue dans le conteneur */
+    right: 10px; /* À droite de l'input */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none; /* Pas de fond pour le bouton */
+    border: none; /* Pas de bordure */
+    cursor: pointer;
+    font-size: 18px; /* Taille de la loupe */
+    color: #aaa;
+    padding: 5px; /* Un peu d'espace autour de l'icône */
+    transition: color 0.3s ease;
+  }
+  
+  /* Effet au survol du bouton */
+  .search-button:hover {
+    color: #E8724A; /* Change de couleur au survol */
+  }
+  
+  /* Effet au focus de l'input */
+  .search-input:focus {
+    border-color: #E8724A;
+    box-shadow: 0 2px 8px rgba(232, 114, 74, 0.3);
+  }
+  .image-loupe {
+    height: 4vw;
+    width: 4vw;
+    margin: auto auto;
+  }  
