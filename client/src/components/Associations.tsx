@@ -24,7 +24,7 @@ const Associations = () => {
   return (
     <div className="associations-container">
       <h1 className="title">ASSOCIATIONS</h1>
-      <h2 className="subtitle">POPULAIRES</h2>
+      <h2 className="subtitle">TOULOUSAINE</h2>
       <div className="associations-grid">
         <div className="association-card main">
           <div>

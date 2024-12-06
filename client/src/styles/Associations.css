@@ -1,15 +1,16 @@
 .associations-container {
-  border-radius: 200px 200px 0px 0px;
+  border-radius: 80px 80px 0px 0px;
   background: #efefef;
   margin-top: 50px;
   padding-top: 50px;
   text-align: center;
   font-family: Arial, sans-serif;
   background-color: #efefef;
+  padding-bottom: 10rem;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 40px;
   font-weight: bold;
   margin: 0;
 }
@@ -58,7 +59,7 @@
   font-weight: bold;
   font-size: 1.2rem;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 .association-card:nth-child(2) {
@@ -112,3 +113,8 @@
   z-index: 2;
   text-align: center;
 }
+
+@media screen and (min-width: 1024px) {
+
+
+  }

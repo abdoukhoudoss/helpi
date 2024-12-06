@@ -27,9 +27,11 @@
 }
 
 .homemission-title {
+  margin-bottom: 1rem;
   background-color: #e8724a;
   color: white;
   font-size: 20px;
   text-align: center;
   font-family: poppins, sans-serif;
+  padding-top: 4rem;
 }
