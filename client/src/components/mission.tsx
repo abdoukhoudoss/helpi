@@ -3,6 +3,7 @@ import { missions } from "../../../server/data.ts";
 import MissionModal from './missionModal.tsx';
 import { Mission } from '../types/types.ts';
 import "../styles/mission.css";
+import OptimizedImage from './OptimizedImage';
 
 function MissionList() {
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
@@ -25,12 +26,10 @@ function MissionList() {
       <div className="missions-grid">
         {missions.map((mission: Mission) => (
           <div className="mission-container" key={mission.id}>
-            <img
-              className="mission-image"
+            <OptimizedImage
               src={mission.imageUrl}
               alt={mission.nom}
               onClick={() => handleOpen(mission)}
-              style={{ cursor: 'pointer' }}
             />
           </div>
         ))}
