@@ -17,8 +17,9 @@ interface Mission {
 const SearchBar: React.FC = () => {
   const [searchText, setSearchText] = useState<string>(""); // Texte de recherche
   const [filteredMissions, setFilteredMissions] = useState<Mission[]>([]); // Missions filtrées
+  const [selectedMission, setSelectedMission] = useState<Mission | null>(null); // Mission sélectionnée
   const [showSuggestion, setShowSuggestion] = useState<boolean>(false); // Contrôle des suggestions
-  const searchBarRef = useRef<HTMLDivElement>(null); // Référence au conteneur de la barre de recherche
+  const searchBarRef = useRef<HTMLDivElement>(null); // Référence à la barre de recherche
 
   // Gestion des clics à l'extérieur de la barre de recherche
   useEffect(() => {
@@ -41,7 +42,7 @@ const SearchBar: React.FC = () => {
   useEffect(() => {
     if (searchText.trim()) {
       const suggestions = missions.filter((mission) =>
-        mission.nom.toLowerCase().includes(searchText.toLowerCase()),
+        mission.nom.toLowerCase().includes(searchText.toLowerCase().trim()),
       );
       setFilteredMissions(suggestions);
       setShowSuggestion(true);
@@ -57,12 +58,15 @@ const SearchBar: React.FC = () => {
       console.log("Veuillez saisir un texte avant de rechercher.");
       return;
     }
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
-    console.log("Rechercher :", searchText);
+    // Sélectionner la première mission correspondant à la recherche
+    const mission = filteredMissions[0] || null;
+    setSelectedMission(mission); // Définit la mission sélectionnée
+    setShowSuggestion(false); // Masque les suggestions
   };
 
   return (
     <div className="component-searchbar" ref={searchBarRef}>
+      {/* Barre de recherche */}
       <div className="search-bar">
         <input
           type="text"
@@ -75,6 +79,8 @@ const SearchBar: React.FC = () => {
           🔍
         </button>
       </div>
+
+      {/* Suggestions */}
       {showSuggestion && (
         <div className="suggestionList">
           <ul className="ul-suggestion-list">
@@ -84,16 +90,14 @@ const SearchBar: React.FC = () => {
                 <li
                   key={`mission-${mission.id}`}
                   className="li-suggestion-list"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
-                    console.log("Mission sélectionnée :", mission);
-                    setSearchText(mission.nom); // Remplit l'input
-                    setShowSuggestion(false); // Masque les suggestions
+                  onClick={() => {
+                    setSearchText(mission.nom);
+                    setShowSuggestion(false);
+                    setSelectedMission(mission);
                   }}
                 >
                   <strong>{mission.nom}</strong>
-                  <p>
+                  <p className="text-muted">
                     {mission.categorie} • {mission.duree}
                   </p>
                 </li>
@@ -102,6 +106,31 @@ const SearchBar: React.FC = () => {
               <li className="li-suggestion-list">Aucune mission trouvée.</li>
             )}
           </ul>
+        </div>
+      )}
+
+      {selectedMission && (
+        <div className="mini-card mt-4 p-4 bg-gray-800 rounded-md">
+          <h3 className="text-lg font-semibold text-white">
+            {selectedMission.nom}
+          </h3>
+          <p className="text-white">{selectedMission.description}</p>
+          <p className="text-sm text-white">
+            Association : <strong>{selectedMission.association}</strong>
+          </p>
+          <p className="text-sm text-white">Durée : {selectedMission.duree}</p>
+          {selectedMission.imageUrl && (
+            // biome-ignore lint/style/useSelfClosingElements: <explanation>
+            <div
+              className="mini-card-img mt-2"
+              style={{
+                backgroundImage: `url(${selectedMission.imageUrl})`,
+                height: "150px",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
+          )}
         </div>
       )}
     </div>
