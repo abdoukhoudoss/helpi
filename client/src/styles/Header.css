@@ -1,0 +1,61 @@
+/* Header général */
+.header {
+    width: 393px; /* Largeur fixe */
+    height: 327px; /* Hauteur fixe */
+    background: linear-gradient(180deg, #E8724A 0%, #EE8A60 100%); /* Dégradé */
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 24px;
+    box-sizing: border-box;
+    color: white;
+  }
+  
+  /* Logo positionné en haut à gauche */
+  .logo-container {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logo {
+    width: 40px; /* Taille de l'image du logo */
+    height: auto;
+  }
+  
+  .logo-container span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Icône centrée */
+  .header-icon {
+    width: 100px; /* Largeur de l'icône */
+    height: auto;
+    margin: 10px auto;
+  }
+  
+  /* Texte centré */
+  .text-container {
+    text-align: center;
+  }
+  
+  .text-container h1 {
+    font-size: 22px; /* Taille du titre */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .text-container p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
