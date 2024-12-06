@@ -1,8 +1,7 @@
-/* Header général */
+
 .header {
-    width: 393px; /* Largeur fixe */
-    height: 327px; /* Hauteur fixe */
-    background: linear-gradient(180deg, #E8724A 0%, #EE8A60 100%); /* Dégradé */
+    width: 100%;
+    background: linear-gradient(180deg, #E8724A 0%, #EE8A60 100%); 
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     display: flex;
@@ -10,52 +9,49 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 24px;
+    padding: 48px 24px 64px;
     box-sizing: border-box;
     color: white;
   }
   
-  /* Logo positionné en haut à gauche */
   .logo-container {
-    position: absolute;
-    top: 24px;
-    left: 24px;
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 32px;
   }
   
   .logo {
-    width: 40px; /* Taille de l'image du logo */
-    height: auto;
+    width: 100%;
+    align-items: center;
   }
   
   .logo-container span {
     font-size: 14px;
     font-weight: bold;
+    max-width: 600px; 
+    padding: 0 16px;
   }
   
-  /* Icône centrée */
-  .header-icon {
-    width: 100px; /* Largeur de l'icône */
-    height: auto;
-    margin: 10px auto;
-  }
   
-  /* Texte centré */
+  
   .text-container {
     text-align: center;
+    padding-top: 20px;
   }
   
   .text-container h1 {
-    font-size: 22px; /* Taille du titre */
+    font-size: 32px; 
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 24px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
   }
   
   .text-container p {
-    font-size: 14px;
+    font-size: 18px; 
     line-height: 1.6;
     margin: 0;
+    text-align: center;
   }
   

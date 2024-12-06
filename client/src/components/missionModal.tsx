@@ -50,7 +50,17 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
   }, [selectedMission]);
 
   return (
-    <Modal open={open} onClose={handleClose} aria-labelledby="mission-modal">
+    <Modal 
+  open={open} 
+  onClose={handleClose} 
+  aria-labelledby="mission-modal"
+  sx={{
+    '& .MuiBackdrop-root': {
+      backdropFilter: 'blur(5px)',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    }
+  }}
+>
       <Box className="modal-content">
         {selectedMission && !showForm && !showSuccess && (
           <>
