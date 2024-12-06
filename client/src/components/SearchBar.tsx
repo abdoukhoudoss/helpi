@@ -2,33 +2,24 @@ import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import "../styles/SearchBar.css";
 import { missions } from "../../../server/data.ts";
-
-interface Mission {
-  id: number;
-  nom: string;
-  description: string;
-  categorie: string;
-  duree: string;
-  nombreBenevoles: number;
-  imageUrl?: string;
-  association: string;
-}
+import MissionModal from './missionModal';
+import { Mission } from '../types/types';
 
 const SearchBar: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>(""); // Texte de recherche
-  const [filteredMissions, setFilteredMissions] = useState<Mission[]>([]); // Missions filtrées
-  const [selectedMission, setSelectedMission] = useState<Mission | null>(null); // Mission sélectionnée
-  const [showSuggestion, setShowSuggestion] = useState<boolean>(false); // Contrôle des suggestions
-  const searchBarRef = useRef<HTMLDivElement>(null); // Référence à la barre de recherche
+  const [searchText, setSearchText] = useState<string>("");
+  const [filteredMissions, setFilteredMissions] = useState<Mission[]>([]);
+  const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
+  const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const searchBarRef = useRef<HTMLDivElement>(null);
 
-  // Gestion des clics à l'extérieur de la barre de recherche
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         searchBarRef.current &&
         !searchBarRef.current.contains(event.target as Node)
       ) {
-        setShowSuggestion(false); // Masque les suggestions
+        setShowSuggestion(false);
       }
     };
 
@@ -38,7 +29,6 @@ const SearchBar: React.FC = () => {
     };
   }, []);
 
-  // Filtrage des missions en fonction de la recherche
   useEffect(() => {
     if (searchText.trim()) {
       const suggestions = missions.filter((mission) =>
@@ -54,19 +44,28 @@ const SearchBar: React.FC = () => {
 
   const handleSearch = () => {
     if (!searchText.trim()) {
-      // biome-ignore lint/suspicious/noConsoleLog: <explanation>
       console.log("Veuillez saisir un texte avant de rechercher.");
       return;
     }
-    // Sélectionner la première mission correspondant à la recherche
     const mission = filteredMissions[0] || null;
-    setSelectedMission(mission); // Définit la mission sélectionnée
-    setShowSuggestion(false); // Masque les suggestions
+    setSelectedMission(mission);
+    setShowSuggestion(false);
+  };
+
+  const handleMissionClick = (mission: Mission) => {
+    setSelectedMission(mission);
+    setModalOpen(true);
+    setShowSuggestion(false);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setSelectedMission(null); 
+  setSearchText('');
   };
 
   return (
     <div className="component-searchbar" ref={searchBarRef}>
-      {/* Barre de recherche */}
       <div className="search-bar">
         <input
           type="text"
@@ -80,21 +79,15 @@ const SearchBar: React.FC = () => {
         </button>
       </div>
 
-      {/* Suggestions */}
       {showSuggestion && (
         <div className="suggestionList">
           <ul className="ul-suggestion-list">
             {filteredMissions.length > 0 ? (
               filteredMissions.slice(0, 5).map((mission) => (
-                // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                 <li
                   key={`mission-${mission.id}`}
                   className="li-suggestion-list"
-                  onClick={() => {
-                    setSearchText(mission.nom);
-                    setShowSuggestion(false);
-                    setSelectedMission(mission);
-                  }}
+                  onClick={() => handleMissionClick(mission)}
                 >
                   <strong>{mission.nom}</strong>
                   <p className="text-muted">
@@ -109,30 +102,33 @@ const SearchBar: React.FC = () => {
         </div>
       )}
 
-      {selectedMission && (
-        <div className="mini-card mt-4 p-4 bg-gray-800 rounded-md">
-          <h3 className="text-lg font-semibold text-white">
-            {selectedMission.nom}
-          </h3>
-          <p className="text-white">{selectedMission.description}</p>
-          <p className="text-sm text-white">
-            Association : <strong>{selectedMission.association}</strong>
-          </p>
-          <p className="text-sm text-white">Durée : {selectedMission.duree}</p>
+      {selectedMission && !modalOpen && !showSuggestion && (
+        <div 
+          className="mini-card mission-result"
+          onClick={() => handleMissionClick(selectedMission)}
+        >
+          <div className="result-content">
+            <h3>{selectedMission.nom}</h3>
+            <p className="result-category">{selectedMission.categorie}</p>
+            <p className="result-duration">Durée : {selectedMission.duree}</p>
+            <p className="result-association">Association : {selectedMission.association}</p>
+          </div>
           {selectedMission.imageUrl && (
-            // biome-ignore lint/style/useSelfClosingElements: <explanation>
             <div
-              className="mini-card-img mt-2"
+              className="mini-card-img"
               style={{
                 backgroundImage: `url(${selectedMission.imageUrl})`,
-                height: "150px",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
               }}
-            ></div>
+            />
           )}
         </div>
       )}
+
+      <MissionModal
+        open={modalOpen}
+        selectedMission={selectedMission}
+        onClose={handleModalClose}
+      />
     </div>
   );
 };
