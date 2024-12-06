@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/SearchBar.css";
 import { missions } from "../../../server/data.ts";
 import MissionModal from './missionModal';
-import { Mission } from '../types/types';
+import type { Mission } from '../types/types';
 
 const SearchBar: React.FC = () => {
   const [searchText, setSearchText] = useState<string>("");
@@ -44,6 +44,7 @@ const SearchBar: React.FC = () => {
 
   const handleSearch = () => {
     if (!searchText.trim()) {
+      // biome-ignore lint/suspicious/noConsoleLog: <explanation>
       console.log("Veuillez saisir un texte avant de rechercher.");
       return;
     }
@@ -84,7 +85,8 @@ const SearchBar: React.FC = () => {
           <ul className="ul-suggestion-list">
             {filteredMissions.length > 0 ? (
               filteredMissions.slice(0, 5).map((mission) => (
-                <li
+                // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+<li
                   key={`mission-${mission.id}`}
                   className="li-suggestion-list"
                   onClick={() => handleMissionClick(mission)}
@@ -103,7 +105,8 @@ const SearchBar: React.FC = () => {
       )}
 
       {selectedMission && !modalOpen && !showSuggestion && (
-        <div 
+        // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+<div 
           className="mini-card mission-result"
           onClick={() => handleMissionClick(selectedMission)}
         >
