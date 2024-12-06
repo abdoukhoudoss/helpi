@@ -1,5 +1,5 @@
 import { Box, Typography, Button, TextField, Modal } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "../styles/missionModal.css";    
 import { Mission, FormData } from '../types/types';
 
@@ -44,6 +44,10 @@ const MissionModal = ({ open, selectedMission, onClose }: MissionModalProps) => 
     console.log("No mission selected"); // Pour le débogage
     return null;
   }
+
+  useEffect(() => { // Pour le débogage
+    console.log("Selected mission:", selectedMission);
+  }, [selectedMission]);
 
   return (
     <Modal open={open} onClose={handleClose} aria-labelledby="mission-modal">
